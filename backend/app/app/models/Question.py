@@ -4,19 +4,19 @@ from typing import Optional
 from pydantic import BaseModel
 from sqlmodel import Column, Field, SQLModel, String, ForeignKey, DateTime
 
-class QuestionBase(SQLModel):
-    repeat_count: str = Field(sa_column=Column(String))
-    correct_answer_override: str = Field(sa_column=Column(String))
 
+class QuestionBase(SQLModel):
+    repeat_count: int
+    correct_answer_override: int
 
 class QuestionCreate(QuestionBase):
-    repeat_count: str
-    correct_answer_override: str
+    repeat_count: int
+    correct_answer_override: int
 
 
 class QuestionUpdate(BaseModel):
-    repeat_count: Optional[str] = None
-    correct_answer_override: Optional[str] = None
+    repeat_count: Optional[int] = None
+    correct_answer_override: Optional[int] = None
 
 
 class Question(QuestionBase, table=True):

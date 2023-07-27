@@ -16,7 +16,7 @@ async def create_config(
     return config
 
 
-@router.delete("/{id}", response_model=None)
+@router.delete("/{config_id}", response_model=None)
 async def delete_config(
     config_id: int,
     db_session: Session = Depends(get_session),

@@ -16,7 +16,7 @@ async def create_test(
     return test
 
 
-@router.delete("/{id}", response_model=None)
+@router.delete("/{test_id}", response_model=None)
 async def delete_test(
     test_id: int,
     db_session: Session = Depends(get_session),

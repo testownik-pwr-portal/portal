@@ -16,7 +16,7 @@ async def create_privi(
     return privi
 
 
-@router.delete("/{id}", response_model=None)
+@router.delete("/{privi_id}", response_model=None)
 async def delete_privi(
     privi_id: int,
     db_session: Session = Depends(get_session),

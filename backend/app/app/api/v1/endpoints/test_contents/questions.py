@@ -16,7 +16,7 @@ async def create_question(
     return question
 
 
-@router.delete("/{id}", response_model=None)
+@router.delete("/{question_id}", response_model=None)
 async def delete_question(
     question_id: int,
     db_session: Session = Depends(get_session),

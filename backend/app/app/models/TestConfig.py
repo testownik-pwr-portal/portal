@@ -5,18 +5,18 @@ from pydantic import BaseModel
 from sqlmodel import Column, Field, SQLModel, String, ForeignKey
 
 class TestConfigBase(SQLModel):
-    correct_answer_repeat_count: str = Field(sa_column=Column(String))
-    correct_answer_repeat_increase: str = Field(sa_column=Column(String))
+    correct_answer_repeat_count: int
+    correct_answer_repeat_increase: int
 
 
 class TestConfigCreate(TestConfigBase):
-    correct_answer_repeat_count: str
-    correct_answer_repeat_increase: str
+    correct_answer_repeat_count: int
+    correct_answer_repeat_increase: int
 
 
 class TestConfigUpdate(BaseModel):
-    correct_answer_repeat_count: Optional[str] = None
-    correct_answer_repeat_increase: Optional[str] = None
+    correct_answer_repeat_count: Optional[int] = None
+    correct_answer_repeat_increase: Optional[int] = None
 
 
 class TestConfig(TestConfigBase, table=True):

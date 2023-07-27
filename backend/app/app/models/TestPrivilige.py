@@ -6,16 +6,21 @@ from pydantic import BaseModel
 from sqlmodel import Column, DateTime, Field, ForeignKey, SQLModel, String
 
 
+class Roles(str, Enum):
+    owner = "owner"
+    editor = "editor"
+    viewer = "viewer"
+
 class TestPriviBase(SQLModel):
-    role: 'Roles' = Field(sa_column=Column(String))
+    role: Roles
 
 
 class TestPriviCreate(TestPriviBase):
-    role: 'Roles'
+    role: Roles
 
 
 class TestPriviUpdate(BaseModel):
-    role: Optional['Roles'] = None    
+    role: Optional[Roles] = None    
 
 
 class TestPrivi(TestPriviBase, table=True):
@@ -32,10 +37,6 @@ class TestPrivi(TestPriviBase, table=True):
         sa_column=Column(DateTime(timezone=True)), default_factory=datetime.utcnow
     )
 
-class Roles(str, Enum):
-    owner = "owner"
-    editor = "editor"
-    viewer = "viewer"
 
 class TestPriviSortingFields(str, Enum):
     id = "id"
