@@ -1,7 +1,11 @@
 /* Components */
 
 export default function IndexPage() {
-  return <></>;
+  return (
+    <>
+      <h1>Redux Toolkit</h1>
+    </>
+  );
 }
 
 export const metadata = {
