@@ -9,7 +9,7 @@ class UserBase(SQLModel):
     username: str = Field(sa_column=Column(String, unique=True))
     email: str = Field(sa_column=Column(String, unique=True))
     hashed_password: str = Field(sa_column=Column(String))
-    is_superuser: bool = Field(default=False)
+    is_superuser: str = Field(sa_column=Column(String))
 
 
 class UserCreate(BaseModel):
